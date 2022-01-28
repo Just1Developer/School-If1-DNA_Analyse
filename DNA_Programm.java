@@ -10,8 +10,8 @@ import javafx.event.*;
  * Beschreibung
  *
  * @version 1.0 vom 11.01.2022
- * Using as many methods as possible
- * @Just1Developer 
+ * @description Using as many methods as possible
+ * @author Just1Developer 
  */
  
  /** done, but cooler ^^
