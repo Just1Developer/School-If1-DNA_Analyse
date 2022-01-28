@@ -10,7 +10,8 @@ import javafx.event.*;
  * Beschreibung
  *
  * @version 1.0 vom 11.01.2022
- * @author 
+ * Using as many methods as possible
+ * @Just1Developer 
  */
  
  /** done, but cooler ^^
@@ -84,13 +85,13 @@ public class DNA_Programm extends Application {
     bRandomSeq.setOnAction(
     (event) -> {bRandomSeq_Action(event);} 
     );
-    bRandomSeq.setText("Zufällige Sequenz");
+    bRandomSeq.setText("ZufÃ¤llige Sequenz");
     root.getChildren().add(bRandomSeq);
     tfRandLength.setLayoutX(437);
     tfRandLength.setLayoutY(16);
     tfRandLength.setPrefHeight(25);
     tfRandLength.setPrefWidth(78);
-    tfRandLength.setPromptText("Länge");
+    tfRandLength.setPromptText("LÃ¤nge");
     root.getChildren().add(tfRandLength);
     bOKwithRNG.setLayoutX(208);
     bOKwithRNG.setLayoutY(104);
@@ -99,7 +100,7 @@ public class DNA_Programm extends Application {
     bOKwithRNG.setOnAction(
     (event) -> {bOKwithRNG_Action(event);} 
     );
-    bOKwithRNG.setText("OK mit zufälliger Sequenz");
+    bOKwithRNG.setText("OK mit zufÃ¤lliger Sequenz");
     root.getChildren().add(bOKwithRNG);
     lCredithttpsgithubcomJust1Developer.setLayoutX(323);
     lCredithttpsgithubcomJust1Developer.setLayoutY(254);
@@ -156,18 +157,18 @@ public class DNA_Programm extends Application {
     if(op.startsWith("ANZ")) {
       
       if(op.length() == 4) {
-        //Ausgabe der Zählen-Methode direkt weitergeben
+        //Ausgabe der ZÃ¤hlen-Methode direkt weitergeben
         return checkAnz(seq, op);
         
-      } else return "Ungültiges Format: " + OGop + "; Bitte gib einen gültigen Zählbefehl an!";
+      } else return "UngÃ¼ltiges Format: " + OGop + "; Bitte gib einen gÃ¼ltigen ZÃ¤hlbefehl an!";
       
     } else if(op.contains("?")) {
         if(op.length() >= minLenSeq && op.length() <= maxLenSeq) {
           
           return checkSequence(seq, op, OGop);
           
-        } else if(minLenSeq == maxLenSeq) return "Ungültiges Format: " + OGop + "; Länge muss " + maxLenSeq + " betragen.";
-          else return "Ungültiges Format: " + OGop + "; Länge muss zwischen " + minLenSeq + " und " + maxLenSeq + " liegen.";
+        } else if(minLenSeq == maxLenSeq) return "UngÃ¼ltiges Format: " + OGop + "; LÃ¤nge muss " + maxLenSeq + " betragen.";
+          else return "UngÃ¼ltiges Format: " + OGop + "; LÃ¤nge muss zwischen " + minLenSeq + " und " + maxLenSeq + " liegen.";
       }
     
     return "Unbekannter Befehl: \"" + OGop + "\"";
@@ -244,7 +245,7 @@ public class DNA_Programm extends Application {
         try {
           
           for(int i2 = 1; i2 < op.length(); i2++) {
-            if(op.charAt(i2) == '?' || op.charAt(i2) == seq.charAt(i+i2)) {   //i =^= 0 für i2
+            if(op.charAt(i2) == '?' || op.charAt(i2) == seq.charAt(i+i2)) {   //i =^= 0 fÃ¼r i2
               match += Character.toUpperCase(seq.charAt(i+i2));
               if(i2 == op.length()-1) {
                 newS = newS.replaceFirst(match.toLowerCase(), match);
@@ -266,7 +267,7 @@ public class DNA_Programm extends Application {
   
    
   public void bOK_Action(Event evt) {
-    // TODO hier Quelltext einfügen
+    // TODO hier Quelltext einfÃ¼gen
     setResult("");
     
     String sequence = getSequence(), op = getOperation();
@@ -291,7 +292,7 @@ public class DNA_Programm extends Application {
   }
 
   public void bRandomSeq_Action(Event evt) {
-    // TODO hier Quelltext einfügen
+    // TODO hier Quelltext einfÃ¼gen
     StringBuilder seq = new StringBuilder();
     //Random r = new Random();
     int len = getRandLength();
@@ -319,12 +320,12 @@ public class DNA_Programm extends Application {
     if(Res.split(" ").length > 1) Res = Res.toLowerCase().split(":")[1].trim();
     
     if(getRandLength() < tfOperation.getText().length() && tfOperation.getText().contains("?")) {
-      setResult("Fehler: Operationsparameter länger als Sequenz");
+      setResult("Fehler: Operationsparameter lÃ¤nger als Sequenz");
       return;
     }
     
     do {
-      //Button mit RNG drücken 
+      //Button mit RNG drÃ¼cken 
       bOKwithRNG_Action(evt);
       //Ergebnis updaten
       Res = lResult.getText().toLowerCase().split(":")[1].trim();
