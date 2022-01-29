@@ -8,9 +8,10 @@ import javafx.event.*;
 /**
  *
  * Beschreibung
+ * u know what this is
  *
  * @version 1.0 vom 11.01.2022
- * @author 
+ * @author JustOneDeveloper
  */
  
  /** done, but cooler ^^
@@ -84,13 +85,13 @@ public class DNA_Programm_Einfach extends Application {
     bRandomSeq.setOnAction(
     (event) -> {bRandomSeq_Action(event);} 
     );
-    bRandomSeq.setText("Zufällige Sequenz");
+    bRandomSeq.setText("ZufÃ¤llige Sequenz");
     root.getChildren().add(bRandomSeq);
     tfRandLength.setLayoutX(437);
     tfRandLength.setLayoutY(16);
     tfRandLength.setPrefHeight(25);
     tfRandLength.setPrefWidth(78);
-    tfRandLength.setPromptText("Länge");
+    tfRandLength.setPromptText("LÃ¤nge");
     root.getChildren().add(tfRandLength);
     bOKwithRNG.setLayoutX(208);
     bOKwithRNG.setLayoutY(104);
@@ -99,7 +100,7 @@ public class DNA_Programm_Einfach extends Application {
     bOKwithRNG.setOnAction(
     (event) -> {bOKwithRNG_Action(event);} 
     );
-    bOKwithRNG.setText("OK mit zufälliger Sequenz");
+    bOKwithRNG.setText("OK mit zufÃ¤lliger Sequenz");
     root.getChildren().add(bOKwithRNG);
     lCredithttpsgithubcomJust1Developer.setLayoutX(323);
     lCredithttpsgithubcomJust1Developer.setLayoutY(254);
@@ -131,7 +132,7 @@ public class DNA_Programm_Einfach extends Application {
   } // end of main
   
   
-  //Übergibt einen String
+  //Ãœbergibt einen String
   public void setResult(String res) {
     //Setzt die Ausgabe auf Ergebnis: Ausgabe
     lResult.setText("Ergebnis:   " + res);  
@@ -148,58 +149,58 @@ public class DNA_Programm_Einfach extends Application {
   
   
   
-  //Operation ausführen, gibt die Ausgabe als String zurück, man übergibt den String Sequenz und den String Operation
-  public String ausführen(String Sequenz, String Operation) {
+  //Operation ausfÃ¼hren, gibt die Ausgabe als String zurÃ¼ck, man Ã¼bergibt den String Sequenz und den String Operation
+  public String ausfÃ¼hren(String Sequenz, String Operation) {
     
-  //Definition von einem Duplikat von Operation (für die Ausgabe) und der Ausgabe selbst
+  //Definition von einem Duplikat von Operation (fÃ¼r die Ausgabe) und der Ausgabe selbst
   String Ausgabe = "";
-  String OriginalOperation = Operation;   //Originale Operation (Für die Ausgabe später)
+  String OriginalOperation = Operation;   //Originale Operation (FÃ¼r die Ausgabe spÃ¤ter)
   
-    Operation = Operation.toUpperCase();  //Operation und Sequenz werden zu Großbuchstaben gemacht
-    Sequenz = Sequenz.toUpperCase();    //Dies löst das Problem der Groß- und Kleinschreibung
+    Operation = Operation.toUpperCase();  //Operation und Sequenz werden zu GroÃŸbuchstaben gemacht
+    Sequenz = Sequenz.toUpperCase();    //Dies lÃ¶st das Problem der GroÃŸ- und Kleinschreibung
     
-  //Falls Operation (jetzt in Großbuchstaben) mit ANZ anfängt
+  //Falls Operation (jetzt in GroÃŸbuchstaben) mit ANZ anfÃ¤ngt
     if(Operation.startsWith("ANZ")) {
       
       if(Operation.length() == 4) {
-        //Ausgabe der Zählen-Methode direkt weitergeben
-        Ausgabe = zählen(Sequenz, Operation);
+        //Ausgabe der ZÃ¤hlen-Methode direkt weitergeben
+        Ausgabe = zÃ¤hlen(Sequenz, Operation);
         
     //Fehler
       } else {
-        Ausgabe = "Ungültiges Format: " + OriginalOperation + "; Bitte gib einen gültigen Zählbefehl an!";
+        Ausgabe = "UngÃ¼ltiges Format: " + OriginalOperation + "; Bitte gib einen gÃ¼ltigen ZÃ¤hlbefehl an!";
       }
       
     } else if((Operation.contains("?")) && Operation.replace("?", "").length() == 2) {  //Else if tritt nur ein, wenn das vorherige if nicht zugetroffen hat
     
     //Falls irgendwo in der Operation ein Fragezeichen vorkommt und
-    //die Operation, wenn man alle Fragezeichen wegnimmt, nur um 1 kürzer wird (Überprüfung auf mehrere Fragezeichen)
+    //die Operation, wenn man alle Fragezeichen wegnimmt, nur um 1 kÃ¼rzer wird (ÃœberprÃ¼fung auf mehrere Fragezeichen)
     
-        if(Operation.length() == 3) {   //Prüft, ob die Länge der Operation 3 ist
-      //Wenn ja, wird die Sequenz überprüft und Ausgabe wird auf den zurückgegebenen Wert gesetzt
+        if(Operation.length() == 3) {   //PrÃ¼ft, ob die LÃ¤nge der Operation 3 ist
+      //Wenn ja, wird die Sequenz Ã¼berprÃ¼ft und Ausgabe wird auf den zurÃ¼ckgegebenen Wert gesetzt
           Ausgabe = FragezeichenChecker(Sequenz, Operation);
           
         } else {
       //Wenn nicht, wird ein Fehler ausgegeben
-      //Bei Operation A?TT steht dann da: Ungültiges Format: A?TT; Länge muss 3 betragen.
-      Ausgabe = "Ungültiges Format: " + OriginalOperation + "; Länge muss 3 betragen.";
+      //Bei Operation A?TT steht dann da: UngÃ¼ltiges Format: A?TT; LÃ¤nge muss 3 betragen.
+      Ausgabe = "UngÃ¼ltiges Format: " + OriginalOperation + "; LÃ¤nge muss 3 betragen.";
     }
     
       } else {  //Falls keines der Beiden obigen zutrifft, landet das Programm hier
     
-      //Ausgabe wird auf unbekannter Befehl gesetzt, ähnlich wie die Fehler(); methode im Unterricht
+      //Ausgabe wird auf unbekannter Befehl gesetzt, Ã¤hnlich wie die Fehler(); methode im Unterricht
       Ausgabe = "Unbekannter Befehl: \"" + OriginalOperation + "\"";
     }
     
-  //Ausgabewert wird zurückgegeben
+  //Ausgabewert wird zurÃ¼ckgegeben
     return Ausgabe;
   }
   
   
   
-  //Zählmethode, gibt String zurück
-  public String zählen(String Sequenz, String Operation) {
-    //Erstellen vom Kontrollwert und dem Zähler
+  //ZÃ¤hlmethode, gibt String zurÃ¼ck
+  public String zÃ¤hlen(String Sequenz, String Operation) {
+    //Erstellen vom Kontrollwert und dem ZÃ¤hler
   char kontrolle = Operation.charAt(3);
     int count = 0;
   
@@ -208,28 +209,28 @@ public class DNA_Programm_Einfach extends Application {
       if(Sequenz.charAt(i) == kontrolle) count += 1;
     }
   
-  //Wert in einem Antwortsatz zurückgeben
+  //Wert in einem Antwortsatz zurÃ¼ckgeben
     return "Das Zeichen " + kontrolle + " kommt in der Sequenz " + count + " mal vor.";
   }
   
   
   
-  //Überprüfung für das Fragezeichen
+  //ÃœberprÃ¼fung fÃ¼r das Fragezeichen
   public String FragezeichenChecker(String Sequenz, String Operation) {
     
-    //Deklarierung Rückgabewert, falls er nicht geändert wird, wird später ein falsch zurückgegeben
-  String Rückgabe = "Nein, die Operation " + Operation + " kommt in der Sequenz nicht vor.";
+    //Deklarierung RÃ¼ckgabewert, falls er nicht geÃ¤ndert wird, wird spÃ¤ter ein falsch zurÃ¼ckgegeben
+  String RÃ¼ckgabe = "Nein, die Operation " + Operation + " kommt in der Sequenz nicht vor.";
     
   for(int i = 0; i < Sequenz.length(); i += 1) {
     char buchstabe = Sequenz.charAt(i);
-    String aktuellerBuchstabe = Character.toString(buchstabe);  //Buchstabe muss für den nächsten Schritt ein String sein; Für die Experten: Nein, casten geht hier nicht
+    String aktuellerBuchstabe = Character.toString(buchstabe);  //Buchstabe muss fÃ¼r den nÃ¤chsten Schritt ein String sein; FÃ¼r die Experten: Nein, casten geht hier nicht
     String Kontrollwert = Operation.replace("?", aktuellerBuchstabe); //Aus A?T und dem aktuellen Buchstaben G wird AGT:
                                       //Wenn AGT vorkommt, kommt A?T logischerweise auch vor.
-    if(Sequenz.contains(Kontrollwert)) Rückgabe = "Ja, die Operation " + Operation + " kommt in der Sequenz vor.";
+    if(Sequenz.contains(Kontrollwert)) RÃ¼ckgabe = "Ja, die Operation " + Operation + " kommt in der Sequenz vor.";
   }
     
-  //Rückgabe des Rückgabewerts
-    return Rückgabe;
+  //RÃ¼ckgabe des RÃ¼ckgabewerts
+    return RÃ¼ckgabe;
   }   
   
   
@@ -238,7 +239,7 @@ public class DNA_Programm_Einfach extends Application {
   
   //Knopf-Methoden 
   public void bOK_Action(Event evt) {
-    // TODO hier Quelltext einfügen
+    // TODO hier Quelltext einfÃ¼gen
     setResult("");
     
   //Felder auslesen
@@ -246,7 +247,7 @@ public class DNA_Programm_Einfach extends Application {
   String Operation = getOperation();
     
   //Operation auswerten
-    String result = ausführen(Sequenz, Operation);
+    String result = ausfÃ¼hren(Sequenz, Operation);
     setResult(result);
     
   } // end of bOK_Action
@@ -256,7 +257,7 @@ public class DNA_Programm_Einfach extends Application {
   
   
   //          ACHTUNG, BITTE LESEN!
-  //Randomly Generated Sequences (RGS) | Das hier ist komplizierter Stuff für zufällige String-Generation. Ich mache ihn nicht weg, vereinfache ihn aber auch nicht.
+  //Randomly Generated Sequences (RGS) | Das hier ist komplizierter Stuff fÃ¼r zufÃ¤llige String-Generation. Ich mache ihn nicht weg, vereinfache ihn aber auch nicht.
   //          Nicht vereinfachter Code ist in der Normalen Datei zu finden.
   
   
@@ -274,7 +275,7 @@ public class DNA_Programm_Einfach extends Application {
   }
 
   public void bRandomSeq_Action(Event evt) {
-    // TODO hier Quelltext einfügen
+    // TODO hier Quelltext einfÃ¼gen
     StringBuilder seq = new StringBuilder();
     //Random r = new Random();
     int len = getRandLength();
@@ -302,12 +303,12 @@ public class DNA_Programm_Einfach extends Application {
     if(Res.split(" ").length > 1) Res = Res.toLowerCase().split(":")[1].trim();
     
     if(getRandLength() < tfOperation.getText().length() && tfOperation.getText().contains("?")) {
-      setResult("Fehler: Operationsparameter länger als Sequenz");
+      setResult("Fehler: Operationsparameter lÃ¤nger als Sequenz");
       return;
     }
     
     do {
-      //Button mit RNG drücken 
+      //Button mit RNG drÃ¼cken 
       bOKwithRNG_Action(evt);
       //Ergebnis updaten
       Res = lResult.getText().toLowerCase().split(":")[1].trim();
